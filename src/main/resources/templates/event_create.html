@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stwórz event</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Łączy nas sport</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/admin/home">Home</a></li>
+                <li class="active"><a href="/event/list/">Wydarzenia</a></li>
+                <li><a href="/places/list/">Miejsca</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Edycja profilu</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <!--/*@thymesVar id="eventAddDTO" type="com.gpch.login.dto.EventAddDTO"*/-->
+            <form autocomplete="off" th:object="${eventAddDTO}" method="post" class="form-horizontal"
+                  role="form">
+                <h2>Stwórz wydarzenie</h2>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                                   class="validation-message"></label>
+                            <input type="date" th:field="*{startDate}" placeholder="Data rozpoczęcia"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{duration}"
+                                   placeholder="Czas rezerwacji w min" class="form-control"/>
+                        </div>
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('maxUsersAmount')}" th:errors="*{maxUsersAmount}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{maxUsersAmount}"
+                                   placeholder="Max liczba uczestników" class="form-control"/>
+                        </div>
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('minUsersAmount')}" th:errors="*{minUsersAmount}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{minUsersAmount}"
+                                   placeholder="Min liczba uczestników" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <select name="cars" th:field="*{place}">
+                                <th:block th:each="row : ${places}">
+                                    <option value="${${row.id}">[[${row.street}]]</option>
+                                </th:block>
+                            </select>
+                            <label
+                                th:if="${#fields.hasErrors('place')}" th:errors="*{place}"
+                                class="validation-message"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-block">Stwórz wydarzenie</button>
+                        </div>
+                    </div>
+
+                    <!--<h2><span class="text-success" th:utext="${successMessage}"></span></h2>-->
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

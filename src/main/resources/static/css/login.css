@@ -1,0 +1,62 @@
+body {
+    background-image: url('http://metropoliabydgoska.pl/wp-content/uploads/2018/01/pi%C5%82ka-no%C5%BCna-boisko-murawa-freeimages-1200x800.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+.container
+{
+    margin-top: 100px;
+
+
+}
+.wrapper {
+    margin-top: 80px;
+    margin-bottom: 20px;
+
+}
+
+.form-signin-heading {
+    text-align:center;
+    margin-bottom: 30px;
+
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    opacity: 1;
+}
+
+input[type="text"] {
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 1;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    opacity: 1;
+}
+input:focus {
+    border-color: #ba7c37 !important;
+}
+
+.btn-primary:hover {
+    background-color: #088400 !important;
+    border-color: #ba7c37 !important;
+}
+
+@media only screen and (max-width: 600px)
+{
+    body
+    {
+        background-size: auto;
+    }
+}

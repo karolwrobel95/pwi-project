@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodaj boisko</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Łączy nas sport</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/admin/home">Home</a></li>
+                <li><a href="/event/list/">Wydarzenia</a></li>
+                <li class="active"><a href="/places/list/">Miejsca</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Edycja profilu</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <!--/*@thymesVar id="placeAddDTO" type="com.gpch.login.dto.PlaceAddDTO"*/-->
+            <div class="form-signin">
+            <form autocomplete="off" th:object="${placeAddDTO}" method="post" class="form-horizontal"
+                  role="form">
+                <h2>Dodaj Boisko</h2>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{name}" placeholder="Nazwa"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('street')}" th:errors="*{street}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{street}"
+                                   placeholder="Ulica" class="form-control"/>
+                        </div>
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('streetNo')}" th:errors="*{streetNo}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{streetNo}"
+                                   placeholder="Nr" class="form-control"/>
+                        </div>
+                        <div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{city}"
+                                   placeholder="Miasto" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <input type="text" th:field="*{email}" placeholder="Email"
+                                   class="form-control"/> <label
+                                th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <input type="text" th:field="*{contactNumber}" placeholder="contactNumber"
+                                   class="form-control"/> <label
+                                th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"
+                                class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <select name="cars" th:field="*{sports}" multiple>
+                                <option value="FOOTBALL">FOOTBALL</option>
+                                <option value="VOLLEYBALL">VOLLEYBALL</option>
+                                <option value="BASKETBALL">BASKETBALL</option>
+                            </select>
+                            <label
+                                th:if="${#fields.hasErrors('sports')}" th:errors="*{sports}"
+                                class="validation-message"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-block">Dodaj</button>
+                        </div>
+                    </div>
+
+                    <h2><span class="text-success" th:text="${successMessage}"></span></h2>
+
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
