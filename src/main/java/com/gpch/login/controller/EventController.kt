@@ -37,6 +37,7 @@ class EventController constructor(
             return "event_create"
         val verifyPlace = eventService.checkPlaceAvailability(eventAddDTO.place!!)
         eventService.saveEventDetails(eventAddDTO)
+        println("mlody to pizda")
         return "redirect: ../{id}/"
     }
 
