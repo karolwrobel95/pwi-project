@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
@@ -49,8 +48,28 @@
 
             </div>
         </form>
+
+        <button id="showMap">Pokaż lokalizację</button>
+        <div id="map"></div>
     </div>
 </div>
 
+<script>
+    var map;
+    $(document).ready(function (){
+        $(document).getElementById("showMap").onclick = initNode();
+    })
+
+
+    function initMap() {
+    map = new google.maps.Map($(document).getElementById('map'), {
+        center: {lat:  [[${x}]], lng:  [[${y}]]},
+        zoom: 8
+    });
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA0Xl76vHHkNDGIxdrYdt0RRqJP7gz-Uo&callback=initMap"
+        async defer></script>
 </body>
 </html>
