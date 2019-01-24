@@ -53,7 +53,9 @@ data class Event constructor(
         var place: Place? = null
 
 ) {
-    enum class State {
-        PREPARING, IN_PROGRESS, DONE
+    enum class State (displayName : String){
+        PREPARING("W przygotowaniu"),
+        IN_PROGRESS("Trwa"),
+        DONE("Zakończony")
     }
 }

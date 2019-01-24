@@ -6,14 +6,18 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "rating")
-data class Rating constructor(
+data  class Rating constructor(
         @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "rating_id")
         val ratingId: Int? = null,
 
         @Column(name = "sport")
-        val sport: Place.Sport? = null,
+        var sport: Place.Sport? = null,
 
         @Column(name = "score")
-        var score: Int? = null
+        var score: Int? = null,
+
+        @Column(name = "user_id")
+        var userId: Int? = null
 )

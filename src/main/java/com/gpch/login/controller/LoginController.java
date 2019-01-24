@@ -3,7 +3,6 @@ package com.gpch.login.controller;
 import com.gpch.login.model.Event;
 import com.gpch.login.model.User;
 import com.gpch.login.repository.EventRepository;
-import com.gpch.login.service.EventService;
 import com.gpch.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

@@ -60,7 +60,7 @@ public class User {
         this.id = id;
     }
 
-    public List<Rating> getRatings() { return  ratings;}
+    public void addRating(Rating rating) { ratings.add(rating);}
 
     public String getEmail() {
         return email;

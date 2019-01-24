@@ -10,8 +10,7 @@ import javax.validation.constraints.NotBlank
 
 @Component
 data class  RatingAddDTO constructor(
-
-        var score: Int? = null,
+        var sport: Place.Sport? = null,
+        var score : Int? = null,
         var user: User? = null
-
 )

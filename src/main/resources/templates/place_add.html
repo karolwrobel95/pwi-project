@@ -70,9 +70,7 @@
                     <div class="form-group">
                         <div class="col-sm-9">
                             <select name="cars" th:field="*{sports}" multiple>
-                                <option value="FOOTBALL">FOOTBALL</option>
-                                <option value="VOLLEYBALL">VOLLEYBALL</option>
-                                <option value="BASKETBALL">BASKETBALL</option>
+                                <option th:each="n : ${enums}" th:value="${n}" th:text="${n.displ ayName}"/>
                             </select>
                             <label
                                 th:if="${#fields.hasErrors('sports')}" th:errors="*{sports}"

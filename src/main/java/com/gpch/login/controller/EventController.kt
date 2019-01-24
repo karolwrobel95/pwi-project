@@ -1,14 +1,17 @@
 package com.gpch.login.controller
 
 import com.gpch.login.dto.EventAddDTO
-import com.gpch.login.dto.RatingAddDTO
-import com.gpch.login.model.User
+import com.gpch.login.model.Place
+import com.gpch.login.model.Rating
 import com.gpch.login.repository.EventRepository
 import com.gpch.login.repository.PlaceRepository
+import com.gpch.login.repository.RatingRepository
 import com.gpch.login.repository.UserRepository
 import com.gpch.login.service.EventService
+import com.gpch.login.service.RatingService
 import com.gpch.login.service.UserService
 import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
@@ -21,9 +24,11 @@ class EventController constructor(
         private val eventRepository: EventRepository,
         private val placeRepository: PlaceRepository,
         private val eventService: EventService,
+        private val userService: UserService,
 
         //do mocka
-        private  val userRepository: UserRepository
+        private  val userRepository: UserRepository,
+        private  val ratingService: RatingService
 ){
 
     @GetMapping("/list/")
@@ -64,8 +69,11 @@ class EventController constructor(
         return "rating"
     }
 
-    @PostMapping("/{userId}/{score}")
-    fun SaveRating(@PathVariable userId : Int, @PathVariable score: Boolean){
-        val user =  userRepository.findById(userId)
+    @PostMapping("/rating/{score}")
+    fun saveRating(@PathVariable score: Int){
+        val auth = SecurityContextHolder.getContext().authentication
+        val user = userService.findUserByEmail(auth.name)
+        ratingService.saveEventDetails(score,user.id,Place.Sport.BASKETBALL )
+        user.addRating(Rating())
     }
 }

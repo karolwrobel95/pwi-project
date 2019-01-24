@@ -2,20 +2,26 @@ package com.gpch.login.controller
 
 
 import com.gpch.login.dto.PlaceAddDTO
+import com.gpch.login.model.Place
 import com.gpch.login.repository.PlaceRepository
 import com.gpch.login.service.PlaceService
+import com.gpch.login.service.UserService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 
 import javax.validation.Valid
+import org.springframework.security.core.context.SecurityContextHolder
+import java.util.*
+
 
 @Controller
 @RequestMapping("/places/")
 class PlaceController(
         private val placeService: PlaceService,
-        private val placeRepository: PlaceRepository
+        private val placeRepository: PlaceRepository,
+        private val userService: UserService
 ) {
 
     @GetMapping("/list/")
@@ -31,7 +37,9 @@ class PlaceController(
     }
 
     @GetMapping("/add/")
-    fun showAddPlaceForm(@ModelAttribute placeAddDTO: PlaceAddDTO): String {
+    fun showAddPlaceForm(@ModelAttribute placeAddDTO: PlaceAddDTO, model : Model): String {
+        var enums = Place.Sport.values()
+        model.addAttribute("enums",enums)
         return "place_add"
     }
 
