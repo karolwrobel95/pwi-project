@@ -51,8 +51,8 @@
                             <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
                         </div>
                             <div class="row">
-                            <div class="col-md-6"><button type="button" class="btn btn-primary" th:href="@{/join/}"/>Dołącz</div>
-                            <div class="col-md-6"><button type="button" class="btn btn-primary" th:href="@{/join/}"/>Dołącz</div>
+                                <div class="col-md-6"><a type="button"  th:href="@{/event/{id}/(id=${row.eventId})}"/>Zobacz</a></div>
+                                <div class="col-md-6"><a type="button"  th:href="@{/join/}"/>Dołącz</a></div>
                          </div>
                     </div>
                 </th:block>
