@@ -31,14 +31,16 @@
     <th:block th:each="row :${events}">
         <div class="form-signin">
         <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
-        <div class="row">
-            <div class="col-md-3" th:text="${row.description}">default</div>
-            <div class="col-md-3" th:text="${row.startDate}">default</div>
-            <div class="col-md-3" th:text="${row.duration}">default</div>
-            <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
-            <div class="col-md-3"><a type="button"  th:href="@{../{id}/(id=${row.eventId})}"/>Zobacz</a></div>
-            <div class="col-md-3"><a type="button"  th:href="@{/join/}"/>Dołącz</a></div>
-        </div>
+            <div class="row">
+                <div class="col-md-3" th:text="${row.description}">default</div>
+                <div class="col-md-3" th:text="${row.startDate}">default</div>
+                <div class="col-md-3" th:text="${row.duration}">default</div>
+                <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
+            </div>
+            <div class="row flat">
+                <div class="col-md-3"><a th:href="@{../{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
+                <div class="col-md-3"><a th:href="@{/join/}"/><span class="butonik">Dołącz</span></a></div>
+            </div>
         </div>
     </th:block>
 </div>

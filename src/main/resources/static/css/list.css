@@ -60,14 +60,28 @@ input:focus {
     border-color: #ba7c37 !important;
 }
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 800px)
 {
     body
     {
         background-size: auto;
 
     }
+    .butonik
+    {
+        width: 45%;
+        float: left;
+        margin: 0px 5px;
 
+    }
+    .butonik:first-child
+    {
+        margin-left:5px;
+    }
+    .row
+    {
+        width: 100%;
+    }
 }
 form
 {
@@ -103,8 +117,33 @@ col-md-3
     font-family: 'Lato', cursive;
     font-weight: 700;
     width: 100%;
+    margin-bottom: 30px;
 }
 .btn-md
 {
     margin: 15px 0px;
+}
+.butonik
+{
+    padding: 15px 30px;
+    text-align: center;
+    background-color: rgba(51,122,183,1);
+    border-radius: 10px;
+    border:rgba(51,122,200,1);
+    box-shadow: #004080 5px 5px 5px;
+    display: block;
+    color: white;
+    font-size: larger;
+}
+.flat
+{
+    width: 100%;
+    margin: 0 auto;
+}
+@media only screen and (min-width: 1000px)
+{
+    .butonik
+    {
+        width: 100%;
+    }
 }
