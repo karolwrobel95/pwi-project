@@ -44,14 +44,15 @@
 &nbsp;
 <div class="container">
 
-    <th:block th:each="row :${participans}">
+    <th:block th:each="user :${participans}">
         <div class="form-signin">
             <!--/*@thymesVar id="row" type="com.gpch.login.model.Place"*/-->
             <div class="row">
-                <div class="col-md-3" th:text="${row.getName()} + ' ' + ${row.getLastName()}">
+                <div class="col-md-3" th:text="${user.getName()} + ' ' + ${user.getLastName()}">
                     Imie nazwisko:
                 </div>
-                <form th:action=""></form>
+                <form th:action="#" th:method="post"><button th:type="submit" width="50" height="50">Yes</button></form>
+                <form th:action="#" th:method="post"><button th:type="submit" width="50" height="50">No</button></form>
             </div>
         </div>
     </th:block>

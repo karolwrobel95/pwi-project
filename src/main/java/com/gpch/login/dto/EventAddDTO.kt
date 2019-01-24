@@ -17,5 +17,8 @@ data class  EventAddDTO constructor(
     var minUsersAmount: Int? = null,
     var description: String? = null,
         @get:NotBlank(message = "Proszę wybrać miejsce!")
-    var place: Place? = null
+    var place: Place? = null,
+        @get:NotBlank(message = "Proszę wybrać jakąś dyscyplię!")
+    var sport: Place.Sport? = null
+
 )

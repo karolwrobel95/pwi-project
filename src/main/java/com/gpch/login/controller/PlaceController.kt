@@ -12,8 +12,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 
 import javax.validation.Valid
-import org.springframework.security.core.context.SecurityContextHolder
-import java.util.*
 
 
 @Controller
@@ -56,6 +54,9 @@ class PlaceController(
     fun showPlaceDetails(@PathVariable id: String, model : Model ): String{
         val current = placeRepository.findById(id.toInt()).get()
         model.addAttribute("model",current)
+        model.addAttribute("x", 52.161957)
+        model.addAttribute("y", 21.046527)
         return "place_detail"
     }
+
 }

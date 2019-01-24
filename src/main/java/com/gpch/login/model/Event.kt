@@ -34,6 +34,9 @@ data class Event constructor(
         @Column
         var description: String? = null,
 
+        @Column
+        var sport: Place.Sport? = null,
+
 
 //        @OneToMany(mappedBy = "event", cascade = [CascadeType.ALL], orphanRemoval = true)
         @ManyToMany(cascade = [CascadeType.ALL])
