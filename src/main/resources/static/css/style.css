@@ -58,11 +58,6 @@ input:focus {
     border-color: #ba7c37 !important;
 }
 
-.btn-primary:hover {
-    background-color: #088400 !important;
-    border-color: #ba7c37 !important;
-}
-
 @media only screen and (max-width: 600px)
 {
     body
