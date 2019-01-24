@@ -51,11 +51,11 @@
 
     <th:block th:each="row :${events}">
         <div class="form-signin">
-        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
+        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event"*/-->
         <div class="row">
             <div class="col-md-3" th:text="${row.description}">default</div>
             <div class="col-md-3" th:text="${row.startDate}">default</div>
-            <div class="col-md-3" th:text="${row.duration}">default</div>
+            <div class="col-md-3" th:text="${row.endDate}">default</div>
             <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
             <div class="col-md-3"><button type="button" class="btn btn-primary" th:href="@{/join/}"/>Dołącz</div>
         </div>
