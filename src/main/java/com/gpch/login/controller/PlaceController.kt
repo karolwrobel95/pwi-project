@@ -26,7 +26,6 @@ class PlaceController(
 
     @GetMapping("/list/")
     fun placeList(model: Model): String {
-
         //wyłączone żeby można było testować widok listy
         //val placesList = placeService.placesList()
         val placesList = placeService.getALLPlaces()

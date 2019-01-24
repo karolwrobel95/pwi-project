@@ -9,6 +9,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
@@ -16,49 +19,62 @@
 </nav>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3 form-signin">
             <!--/*@thymesVar id="eventAddDTO" type="com.gpch.login.dto.EventAddDTO"*/-->
-            <form autocomplete="off" th:object="${eventAddDTO}" method="post" class="form-horizontal"
-                  role="form">
+            <form th:object="${eventAddDTO}" method="post" class="form-horizontal" role="form">
                 <h2>Stwórz wydarzenie</h2>
                     <div class="form-group">
                         <div class="col-sm-9">
-                            <label th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                            <label th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
                                    class="validation-message"></label>
-                            <input type="date" th:field="*{startDate}" placeholder="Data rozpoczęcia"
+                            <input type="datetime" th:field="*{description}" placeholder="Opis"
                                    class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-9">
-                            <label th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"
+                            <label th:if="${#fields.hasErrors('date')}" th:errors="*{date}"
                                    class="validation-message"></label>
-                            <input type="text" th:field="*{duration}"
-                                   placeholder="Czas rezerwacji w min" class="form-control"/>
+                            <input type="date" th:field="*{date}" placeholder="Dzień eventu"
+                                   class="form-control"/>
+                            <label th:if="${#fields.hasErrors('start')}" th:errors="*{start}"
+                                   class="validation-message"></label>
+                            <input type="time" th:field="*{start}" placeholder="Start eventu"
+                                   class="form-control"/>
+                            <label th:if="${#fields.hasErrors('end')}" th:errors="*{end}"
+                                   class="validation-message"></label>
+                            <input type="time" th:field="*{end}" placeholder="Koniec eventu"
+                                   class="form-control"/>
                         </div>
+
+                    <div class="form-group">
                         <div class="col-sm-9">
                             <label th:if="${#fields.hasErrors('maxUsersAmount')}" th:errors="*{maxUsersAmount}"
                                    class="validation-message"></label>
-                            <input type="text" th:field="*{maxUsersAmount}"
-                                   placeholder="Max liczba uczestników" class="form-control"/>
-                        </div>
-                        <div class="col-sm-9">
-                            <label th:if="${#fields.hasErrors('minUsersAmount')}" th:errors="*{minUsersAmount}"
-                                   class="validation-message"></label>
-                            <input type="text" th:field="*{minUsersAmount}"
-                                   placeholder="Min liczba uczestników" class="form-control"/>
+                            <input type="text" th:field="*{maxUsersAmount}" placeholder="Max uczestników"
+                                   class="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-9">
-                            <select name="cars" th:field="*{place}">
-                                <th:block th:each="row : ${places}">
-                                    <option th:value="${row.id}">[[${row.street}]]</option>
-                                </th:block>
+                            <label th:if="${#fields.hasErrors('minUsersAmount')}" th:errors="*{minUsersAmount}"
+                                   class="validation-message"></label>
+                            <input type="text" th:field="*{minUsersAmount}" placeholder="Min uczestników"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <select name="place" th:field="*{place}">
+                                <option th:each="row : ${places}" th:value="${row.id}" th:text="${row.street}"></option>
                             </select>
-                            <label
-                                th:if="${#fields.hasErrors('place')}" th:errors="*{place}"
-                                class="validation-message"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <select name="place" th:field="*{sport}">
+                                <option th:each="row : ${sports}" th:value="${row}" th:text="${row}"></option>
+                            </select>
                         </div>
                     </div>
 
@@ -67,13 +83,11 @@
                             <button type="submit" class="btn btn-primary btn-block">Stwórz wydarzenie</button>
                         </div>
                     </div>
-
-                    <!--<h2><span class="text-success" th:utext="${successMessage}"></span></h2>-->
-
+                </div>
+        </div>
             </form>
         </div>
     </div>
 </div>
-
 </body>
 </html>

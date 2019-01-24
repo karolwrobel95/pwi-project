@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 <nav th:replace="fragments/topnav :: navbar">
@@ -27,14 +28,13 @@
 <div class="container">
     <a class="btn btn-md btn-warning btn-block" type="button" th:href="@{../create/}">Stwórz event</a>
 
-
     <th:block th:each="row :${events}">
         <div class="form-signin">
         <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
             <div class="row">
                 <label>Opis: </label><label th:text="${row.description}" class="form-control read"></label>
                 <label>Data startu: </label><label th:text="${row.startDate}" class="form-control"></label>
-                <label>Czas trwania: </label><label th:text="${row.duration}" class="form-control"></label>
+                <label>Data zakończenia: </label><label th:text="${row.endDate}" class="form-control"></label>
                 <label>Aktualna liczba uczestników: </label><label th:text="${row.currentUserNo + '/' + row.maxUsersAmount}" class="form-control"></label>
             </div>
             <div class="row flat">

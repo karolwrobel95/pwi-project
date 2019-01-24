@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
+    font-family: 'Lato', cursive;
 
 }
 .container
@@ -60,35 +61,6 @@ input:focus {
     background-color: #088400 !important;
     border-color: #ba7c37 !important;
 }
-
-@media only screen and (max-width: 800px)
-{
-    body
-    {
-        background-size: auto;
-
-    }
-    .butonik
-    {
-        width: 45%;
-        float: left;
-        margin: 0px 7px;
-        padding: 0;
-
-    }
-    .butonik:first-child
-    {
-        margin-left:5px;
-    }
-    .row
-    {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-
-    }
-
-}
 form
 {
     padding: 0;
@@ -131,8 +103,9 @@ col-md-3
 }
 .butonik
 {
-    padding: 15px 30px;
+    width: 100%;
     text-align: center;
+    padding: 15px 30px;
     background-color: rgba(51,122,183,1);
     border-radius: 10px;
     border:rgba(51,122,200,1);
@@ -153,8 +126,29 @@ col-md-3
         width: 100%;
     }
 }
-.read
+@media only screen and (max-width: 800px)
 {
-    background-color: rgba(52,122,255,.8);
-    color:white;
+    body
+    {
+        background-size: auto;
+
+    }
+    .butonik
+    {
+        width: 45%;
+        float: left;
+        margin: 0px 7px;
+        padding: 10px 0px;
+    }
+    .butonik:first-child
+    {
+        margin-left:5px;
+    }
+    .row
+    {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
 }

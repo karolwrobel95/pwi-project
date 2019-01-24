@@ -8,6 +8,7 @@ import javax.persistence.*
 @Table(name = "event")
 data class Event constructor(
         @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "event_id")
         val eventId: Int? = null,
 
@@ -16,11 +17,12 @@ data class Event constructor(
         var createdBy: User? = null,
 
         @Column(name = "start_date")
-        @DateTimeFormat(pattern = "yyyy/MM/dd hh:mm:ss")
+        @DateTimeFormat(pattern = "yyyy/MM/dd hh:mm")
         var startDate: Date? = null,
 
-        @Column(name = "duration")
-        var duration: Int? = null,
+        @Column(name = "end_date")
+        @DateTimeFormat(pattern = "yyyy/MM/dd hh:mm")
+        var endDate: Date? = null,
 
         @Column(name = "max_users_amount")
         var maxUsersAmount: Int? = null,
@@ -50,7 +52,11 @@ data class Event constructor(
 
         @ManyToOne
         @JoinColumn(name = "id")
-        var place: Place? = null
+        var place: Place? = null,
+
+        @Column(name = "sport")
+        @Enumerated(EnumType.STRING)
+        var sport: Place.Sport? = null
 
 ) {
     enum class State (displayName : String){

@@ -2,7 +2,6 @@ package com.gpch.login.controller
 
 import com.gpch.login.dto.EventAddDTO
 import com.gpch.login.model.Place
-import com.gpch.login.model.Rating
 import com.gpch.login.repository.EventRepository
 import com.gpch.login.repository.PlaceRepository
 import com.gpch.login.repository.RatingRepository
@@ -40,16 +39,20 @@ class EventController constructor(
     @GetMapping("/create/")
     fun createEvent(@ModelAttribute eventAddDTO: EventAddDTO, model: Model): String{
         model.addAttribute("places", placeRepository.findAll())
+        model.addAttribute("sports", Place.Sport.values())  //TODO dynamiczne pobieranie dostepnych sportow w zaleznosci od wybranego miejsca
         return "event_create"
     }
 
     @PostMapping("/create/")
-    fun saveEvent(@Valid @ModelAttribute eventAddDTO: EventAddDTO,result: BindingResult,authentication: Authentication, model: Model): String{
-        if(result.hasErrors())
-            return "event_create"
-        //val verifyPlace = eventService.checkPlaceAvailability(eventAddDTO.place!!)
-        eventService.saveEventDetails(eventAddDTO)
-        return "redirect: ../{id}/"
+    fun saveEvent(@Valid @ModelAttribute eventAddDTO: EventAddDTO, result: BindingResult, model: Model): String{
+        if (result.hasErrors()){
+            model.addAttribute("places", placeRepository.findAll())
+            model.addAttribute("sports", Place.Sport.values())  //TODO dynamiczne pobieranie dostepnych sportow w zaleznosci od wybranego miejsca
+            return "event_create"}
+        eventService.saveEventDetails(eventAddDTO,result)
+
+        println(eventAddDTO)
+        return "event_create" //TODO zmienic link
     }
 
     @GetMapping("/{id}/")
@@ -61,7 +64,7 @@ class EventController constructor(
 
     @GetMapping("/{id}/rating/")
     fun getRating(@PathVariable id: Int, model: Model): String{
-        val currentEvent = eventService.getEventById(id)
+//        val currentEvent = eventService.getEventById(id)
         //mock do widoku
         val participans =  userRepository.findAll()
         //val participans = currentEvent.participants;
@@ -74,6 +77,5 @@ class EventController constructor(
         val auth = SecurityContextHolder.getContext().authentication
         val user = userService.findUserByEmail(auth.name)
         ratingService.saveEventDetails(score,user.id,Place.Sport.BASKETBALL )
-        user.addRating(Rating())
     }
 }
