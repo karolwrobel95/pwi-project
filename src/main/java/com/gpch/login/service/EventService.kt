@@ -16,6 +16,10 @@ class EventService constructor(
         private val userRepository: UserRepository
 ) {
 
+    fun getEventById(id : Int) : Event{
+        return eventRepository.findById(id).get()
+    }
+
     fun checkPlaceAvailability(place: Place) {
 
     }

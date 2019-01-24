@@ -6,7 +6,7 @@ import java.util.*
 import javax.validation.constraints.NotBlank
 
 @Component
-data class EventAddDTO constructor(
+data class  EventAddDTO constructor(
         @get:NotBlank(message = "Proszę podać datę rozpoczęcia!")
     var startDate: Date? = null,
         @get:NotBlank(message = "Proszę podać czas trwania wydarzenia!")

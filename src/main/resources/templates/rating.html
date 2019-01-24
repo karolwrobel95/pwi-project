@@ -2,14 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista eventów</title>
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <title>Ocena zawodników</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,6 +12,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,8 +28,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/admin/home">Home</a></li>
-                <li class="active"><a href="/event/list/">Wydarzenia</a></li>
-                <li><a href="/places/list/">Miejsca</a></li>
+                <li><a href="/event/list/">Wydarzenia</a></li>
+                <li class="active"><a href="/places/list/">Miejsca</a></li>
                 <li><a href="#">Page 3</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -45,24 +40,21 @@
     </div>
 </nav>
 
+
 &nbsp;
 <div class="container">
-    <a class="btn btn-md btn-warning btn-block" type="button" th:href="@{../create/}">Stwórz event</a>
 
-
-    <th:block th:each="row :${events}">
+    <th:block th:each="row :${participans}">
         <div class="form-signin">
-        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
-        <div class="row">
-            <div class="col-md-3" th:text="${row.description}">default</div>
-            <div class="col-md-3" th:text="${row.startDate}">default</div>
-            <div class="col-md-3" th:text="${row.duration}">default</div>
-            <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
-            <div class="col-md-3"><a type="button"  th:href="@{../{id}/(id=${row.eventId})}"/>Zobacz</a></div>
-            <div class="col-md-3"><a type="button"  th:href="@{/join/}"/>Dołącz</a></div>
-        </div>
+            <!--/*@thymesVar id="row" type="com.gpch.login.model.Place"*/-->
+            <div class="row">
+                <div class="col-md-3" th:text="${row.getName()} + ' ' + ${row.getLastName()}">
+                    Imie nazwisko:
+                </div>
+            </div>
         </div>
     </th:block>
+
 </div>
 
 </body>

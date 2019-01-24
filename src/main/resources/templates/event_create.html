@@ -74,7 +74,7 @@
                         <div class="col-sm-9">
                             <select name="cars" th:field="*{place}">
                                 <th:block th:each="row : ${places}">
-                                    <option value="${${row.id}">[[${row.street}]]</option>
+                                    <option th:value="${row.id}">[[${row.street}]]</option>
                                 </th:block>
                             </select>
                             <label

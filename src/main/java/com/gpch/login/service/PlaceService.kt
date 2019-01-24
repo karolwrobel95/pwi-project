@@ -11,14 +11,18 @@ class PlaceService constructor(
         private val placeRepository: PlaceRepository
 ) {
 
+    fun getALLPlaces() : List<Place>{
+        return placeRepository.findAll()
+    }
+
     fun placesList(): List<Place> {
         return placeRepository.findAllByVerifiedIsTrue()
     }
 
     fun verifyAndSavePlace(place: PlaceAddDTO, result: BindingResult) {
-        val count = placeRepository.checkIfPlaceAlreadyExist(place.street,place.streetNo,place.city)
-        if (count.isNotEmpty()) result.rejectValue("street", "placeAlreadyExistExist")
-        else {
+        //val count = placeRepository.checkIfPlaceAlreadyExist(place.street,place.streetNo,place.city)
+        //if (count.isNotEmpty()) result.rejectValue("street", "placeAlreadyExistExist")
+        //else {
             placeRepository.save(Place().apply {
                 name = place.name
                 street = place.street
@@ -32,5 +36,5 @@ class PlaceService constructor(
             })
             println("Dodano nowe miejsce $place")
         }
-    }
+    //}
 }

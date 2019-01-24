@@ -60,6 +60,7 @@
             <div class="col-md-3" th:text="${row.sports}">
                 Sporty
             </div>
+            <div class="col-md-3"><a type="button"  th:href="@{../{id}/(id=${row.id})}"/>Zobacz</a></div>
         </div>
         </div>
     </th:block>
