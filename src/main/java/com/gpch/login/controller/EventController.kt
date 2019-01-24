@@ -64,7 +64,7 @@ class EventController constructor(
 
     @GetMapping("/{id}/rating/")
     fun getRating(@PathVariable id: Int, model: Model): String{
-        val currentEvent = eventService.getEventById(id)
+//        val currentEvent = eventService.getEventById(id)
         //mock do widoku
         val participans =  userRepository.findAll()
         //val participans = currentEvent.participants;
@@ -77,6 +77,5 @@ class EventController constructor(
         val auth = SecurityContextHolder.getContext().authentication
         val user = userService.findUserByEmail(auth.name)
         ratingService.saveEventDetails(score,user.id,Place.Sport.BASKETBALL )
-        user.addRating(Rating())
     }
 }
