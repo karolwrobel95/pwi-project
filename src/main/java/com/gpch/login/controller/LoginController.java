@@ -1,6 +1,9 @@
 package com.gpch.login.controller;
 
+import com.gpch.login.model.Event;
 import com.gpch.login.model.User;
+import com.gpch.login.repository.EventRepository;
+import com.gpch.login.service.EventService;
 import com.gpch.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private EventRepository eventRepository;
 
     @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -62,6 +68,8 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        List<Event> events = eventRepository.findAll();
+        modelAndView.addObject("events",events);
         modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
         modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
         modelAndView.setViewName("admin/home");

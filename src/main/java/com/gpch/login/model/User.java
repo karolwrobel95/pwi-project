@@ -51,7 +51,7 @@ public class User {
 
 
 
-    public List<Rating> getRatings(){ return  ratings; }
+
     public int getId() {
         return id;
     }
@@ -59,6 +59,8 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
+    public List<Rating> getRatings() { return  ratings;}
 
     public String getEmail() {
         return email;

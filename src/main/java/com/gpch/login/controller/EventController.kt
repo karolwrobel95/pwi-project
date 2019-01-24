@@ -2,10 +2,12 @@ package com.gpch.login.controller
 
 import com.gpch.login.dto.EventAddDTO
 import com.gpch.login.dto.RatingAddDTO
+import com.gpch.login.model.User
 import com.gpch.login.repository.EventRepository
 import com.gpch.login.repository.PlaceRepository
 import com.gpch.login.repository.UserRepository
 import com.gpch.login.service.EventService
+import com.gpch.login.service.UserService
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -18,7 +20,10 @@ import javax.validation.Valid
 class EventController constructor(
         private val eventRepository: EventRepository,
         private val placeRepository: PlaceRepository,
-        private val eventService: EventService
+        private val eventService: EventService,
+
+        //do mocka
+        private  val userRepository: UserRepository
 ){
 
     @GetMapping("/list/")
@@ -49,18 +54,18 @@ class EventController constructor(
         return "event_detail"
     }
 
-    @GetMapping("/{id}//rating/")
+    @GetMapping("/{id}/rating/")
     fun getRating(@PathVariable id: Int, model: Model): String{
         val currentEvent = eventService.getEventById(id)
-        val participans = currentEvent.participants;
-        model.addAttribute("participans",participans);
+        //mock do widoku
+        val participans =  userRepository.findAll()
+        //val participans = currentEvent.participants;
+        model.addAttribute("participans",participans)
         return "rating"
     }
 
-    @PostMapping("/{id}//rating/")
-    fun SaveRating(@Valid @ModelAttribute ratingAddDTO: RatingAddDTO,result: BindingResult,authentication: Authentication, model: Model): String{
-        if(result.hasErrors())
-            return "event_create"
-        return "redirect: ../{id}/"
+    @PostMapping("/{userId}/{score}")
+    fun SaveRating(@PathVariable userId : Int, @PathVariable score: Boolean){
+        val user =  userRepository.findById(userId)
     }
 }
