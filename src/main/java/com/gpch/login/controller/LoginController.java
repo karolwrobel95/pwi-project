@@ -5,6 +5,9 @@ import com.gpch.login.model.User;
 import com.gpch.login.repository.EventRepository;
 import com.gpch.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +26,9 @@ public class LoginController {
     private UserService userService;
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private JavaMailSender sender;
+
 
     @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -57,7 +63,11 @@ public class LoginController {
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
-
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(user.getEmail());
+            message.setText(user.getName() + " " + user.getLastName() + " twoje konto zostało zarejestrowane");
+            message.setSubject("Rejestracja");
+            sender.send(message);
         }
         return modelAndView;
     }

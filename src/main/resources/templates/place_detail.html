@@ -34,13 +34,19 @@
             <div class="col-md-6 col-md-offset-3">
                 <label>Telefon: </label><label th:text="*{contactNumber}" class="form-control"></label>
             </div>
-
             <div>
-            <label>Dostępne dyscypliny:</label>
-            <th:block th:each="row :*{sports}">
-                        <div class="col-md-3" th:text="${row}">
-                        </div>
-            </th:block>
+
+                    <label>Dostępne dyscypliny:</label>
+                    <!--<th:block th:each="row :*{sports}">-->
+                                <!--<div class="col-md-3" th:text="${row}">-->
+                                <!--</div>-->
+                    <!--</th:block>-->
+
+                 <th:block th:each="s:*{sports}">
+                            <span th:text="${s.displayName}"></span>
+                </th:block>
+
+
             </div>
         </form>
     </div>

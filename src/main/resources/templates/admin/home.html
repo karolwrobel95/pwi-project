@@ -47,14 +47,14 @@
                     <div class="form-signin">
                         <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
                         <div class="row">
-                            <label>Opis: </label><label th:text="${row.description}" class="form-control read"></label>
-                            <div class="col-md-3" th:text="${row.startDate}">default</div>
-                            <div class="col-md-3" th:text="${row.duration}">default</div>
-                            <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
+                            <label>Opis: </label><label th:text="${row.description}" class="form-control"></label>
+                            <label>Opis: </label><label th:text="${row.startDate}" class="form-control"></label>
+                            <label>Opis: </label><label th:text="${row.duration}" class="form-control"></label>
+                            <label>Opis: </label><label th:text="${row.currentUserNo + '/' + row.maxUsersAmount}" class="form-control"></label>
                         </div>
                             <div class="row">
                                 <!--<div class="col-md-6"><a th:replace="fragments/topnav :: detail"></a></div>-->
-                                <div class="col-md-6"> <a th:href="@{../event/{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
+                                <div class="col-md-3"> <a th:href="@{../event/{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
                          </div>
                     </div>
                 </th:block>

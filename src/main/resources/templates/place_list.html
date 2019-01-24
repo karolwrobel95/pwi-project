@@ -52,14 +52,10 @@
         <div class="form-signin">
         <!--/*@thymesVar id="row" type="com.gpch.login.model.Place"*/-->
         <div class="row">
-            <label>Nazwa obiektu:</label><label th:text="${row.name}" class="form-control read"></label>
-            <div class="col-md-3" th:text="${row.street +' '+ row.streetNo+' ' + row.city}">
-                Adres
-            </div>
-            <span class="icon-bar"></span>
-            <div class="col-md-3" th:text="${row.sports}">
-                Sporty
-            </div>
+            <label>Nazwa obiektu:</label><label th:text="${row.name}" class="form-control"></label>
+            <label>Adres:</label><label th:text="${row.street +' '+ row.streetNo+' ' + row.city}" class="form-control"></label>
+            <label>Dostępne sporty:</label><label class="form-control"><th:block th:each="sport :${row.sports}">
+            <span th:text="*{sport.displayName}"></span></label>
             <div class="col-md-3"><a type="button"  th:href="@{../{id}/(id=${row.id})}"/><span class="butonik">Zobacz</span></a></div>
         </div>
         </div>
