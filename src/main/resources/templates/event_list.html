@@ -20,29 +20,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Łączy nas sport</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="/admin/home">Home</a></li>
-                <li class="active"><a href="/event/list/">Wydarzenia</a></li>
-                <li><a href="/places/list/">Miejsca</a></li>
-                <li><a href="#">Page 3</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Edycja profilu</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
-            </ul>
-        </div>
-    </div>
+<nav th:replace="fragments/topnav :: navbar">
 </nav>
 
 &nbsp;
@@ -51,14 +29,17 @@
 
     <th:block th:each="row :${events}">
         <div class="form-signin">
-        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event"*/-->
-        <div class="row">
-            <div class="col-md-3" th:text="${row.description}">default</div>
-            <div class="col-md-3" th:text="${row.startDate}">default</div>
-            <div class="col-md-3" th:text="${row.endDate}">default</div>
-            <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
-            <div class="col-md-3"><button type="button" class="btn btn-primary" th:href="@{/join/}"/>Dołącz</div>
-        </div>
+        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
+            <div class="row">
+                <label>Opis: </label><label th:text="${row.description}" class="form-control read"></label>
+                <label>Data startu: </label><label th:text="${row.startDate}" class="form-control"></label>
+                <label>Czas trwania: </label><label th:text="${row.duration}" class="form-control"></label>
+                <label>Aktualna liczba uczestników: </label><label th:text="${row.currentUserNo + '/' + row.maxUsersAmount}" class="form-control"></label>
+            </div>
+            <div class="row flat">
+                <div class="col-md-3"><a th:href="@{../{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
+                <div class="col-md-3"><a th:href="@{/join/}"/><span class="butonik">Dołącz</span></a></div>
+            </div>
         </div>
     </th:block>
 </div>

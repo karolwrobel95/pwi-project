@@ -34,8 +34,17 @@ data class Place constructor(
         var sports: MutableList<Sport>? = null
 
 ) {
-    enum class Sport {
-        FOOTBALL, VOLLEYBALL, BASKETBALL
+    enum class Sport(val displayName: String) {
+        FOOTBALL("Piłka nożna"),
+        VOLLEYBALL("Siatkówka"),
+        BASKETBALL("Koszykówka");
+
+
+//            override fun toString(): String {
+//                    return this.dn
+//            }
+
+
     }
 
 }
