@@ -8,7 +8,7 @@ body {
 }
 .container
 {
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .form-signin {
@@ -21,6 +21,7 @@ body {
     box-shadow: black 3px 3px 20px;
     margin-bottom: 15px;
     font-size: larger;
+
 
 }
 
@@ -71,7 +72,8 @@ input:focus {
     {
         width: 45%;
         float: left;
-        margin: 0px 5px;
+        margin: 0px 7px;
+        padding: 0;
 
     }
     .butonik:first-child
@@ -81,7 +83,11 @@ input:focus {
     .row
     {
         width: 100%;
+        margin: 0;
+        padding: 0;
+
     }
+
 }
 form
 {
@@ -146,4 +152,9 @@ col-md-3
     {
         width: 100%;
     }
+}
+.read
+{
+    background-color: rgba(52,122,255,.8);
+    color:white;
 }

@@ -23,3 +23,8 @@ body {
     }
 
 }
+.col-md-6 .butonik
+{
+    width: 100%;
+    text-align: left;
+}

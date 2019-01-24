@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 
 </head>
 
@@ -38,21 +40,21 @@
         </div>
         <div class="panel panel-secondary">
             <div class="panel-heading">
-                <span>Twoje wydarzenia sportowe</span>
+                <h2>Twoje wydarzenia sportowe</h2>
             </div>
             <div class="panel-body">
                 <th:block th:each="row :${events}">
                     <div class="form-signin">
                         <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
                         <div class="row">
-                            <div class="col-md-3" th:text="${row.description}">default</div>
+                            <label>Opis: </label><label th:text="${row.description}" class="form-control read"></label>
                             <div class="col-md-3" th:text="${row.startDate}">default</div>
                             <div class="col-md-3" th:text="${row.duration}">default</div>
                             <div class="col-md-3" th:text="${row.currentUserNo + '/' + row.maxUsersAmount}"></div>
                         </div>
                             <div class="row">
-                                <div class="col-md-6"><a type="button"  th:href="@{/event/{id}/(id=${row.eventId})}"/>Zobacz</a></div>
-                                <div class="col-md-6"><a type="button"  th:href="@{/join/}"/>Dołącz</a></div>
+                                <!--<div class="col-md-6"><a th:replace="fragments/topnav :: detail"></a></div>-->
+                                <div class="col-md-6"> <a th:href="@{../event/{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
                          </div>
                     </div>
                 </th:block>
