@@ -36,6 +36,9 @@ data class Event constructor(
         @Column
         var description: String? = null,
 
+        @Column
+        var sport: Place.Sport? = null,
+
 
 //        @OneToMany(mappedBy = "event", cascade = [CascadeType.ALL], orphanRemoval = true)
         @ManyToMany(cascade = [CascadeType.ALL])
@@ -52,11 +55,8 @@ data class Event constructor(
 
         @ManyToOne
         @JoinColumn(name = "id")
-        var place: Place? = null,
+        var place: Place? = null
 
-        @Column(name = "sport")
-        @Enumerated(EnumType.STRING)
-        var sport: Place.Sport? = null
 
 ) {
     enum class State (displayName : String){

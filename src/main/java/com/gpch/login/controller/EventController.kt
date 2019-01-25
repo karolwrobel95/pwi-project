@@ -2,6 +2,7 @@ package com.gpch.login.controller
 
 import com.gpch.login.dto.EventAddDTO
 import com.gpch.login.model.Place
+import com.gpch.login.model.Rating
 import com.gpch.login.repository.EventRepository
 import com.gpch.login.repository.PlaceRepository
 import com.gpch.login.repository.RatingRepository
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
+import javax.servlet.http.HttpServletResponse
 import javax.validation.Valid
 
 @Controller
@@ -74,10 +76,13 @@ class EventController constructor(
         return "rating"
     }
 
-    @PostMapping("/rating/{score}")
-    fun saveRating(@PathVariable score: Int){
-        val auth = SecurityContextHolder.getContext().authentication
-        val user = userService.findUserByEmail(auth.name)
-        ratingService.saveEventDetails(score,user.id,Place.Sport.BASKETBALL )
+    @PostMapping("/{eventId}/rating/{score}/{userId}/")
+    fun saveRating(@PathVariable eventId: Int,@PathVariable score: Int,@PathVariable userId: Int, res : HttpServletResponse) : String{
+        var user = userRepository.findById(userId).get()
+        var event = eventRepository.findById(eventId).get()
+        ratingService.saveEventDetails(score,user.id,event.sport!!)
+        user.addRating(Rating())
+        return "redirect: ../rating"
+
     }
 }
