@@ -73,7 +73,7 @@
                     <div class="form-group">
                         <div class="col-sm-9">
                             <select name="place" th:field="*{sport}">
-                                <option th:each="row : ${sports}" th:value="${row}" th:text="${row}"></option>
+                                <option th:each="n : ${enums}" th:value="${n}" th:text="${n.displayName}"/>
                             </select>
                         </div>
                     </div>

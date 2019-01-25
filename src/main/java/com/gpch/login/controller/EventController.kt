@@ -40,6 +40,8 @@ class EventController constructor(
     fun createEvent(@ModelAttribute eventAddDTO: EventAddDTO, model: Model): String{
         model.addAttribute("places", placeRepository.findAll())
         model.addAttribute("sports", Place.Sport.values())  //TODO dynamiczne pobieranie dostepnych sportow w zaleznosci od wybranego miejsca
+        var enums = Place.Sport.values()
+        model.addAttribute("enums",enums)
         return "event_create"
     }
 
