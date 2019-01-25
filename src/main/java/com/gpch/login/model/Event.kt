@@ -55,11 +55,8 @@ data class Event constructor(
 
         @ManyToOne
         @JoinColumn(name = "id")
-        var place: Place? = null,
+        var place: Place? = null
 
-        @Column(name = "sport")
-        @Enumerated(EnumType.STRING)
-        var sport: Place.Sport? = null
 
 ) {
     enum class State (displayName : String){
