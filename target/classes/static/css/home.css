@@ -1,0 +1,30 @@
+body {
+    background-image: url("../images/css-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Lato', cursive;
+}
+
+.admin-message-text {
+    font-style: normal;
+    font-size: 22px;
+    color: #004080;
+}
+.container
+{
+    margin-top: 30px;
+}
+@media only screen and (max-width: 600px)
+{
+    body
+    {
+        background-size: auto;
+    }
+
+}
+.col-md-6 .butonik
+{
+    width: 100%;
+    text-align: left;
+}

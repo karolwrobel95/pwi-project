@@ -1,0 +1,83 @@
+.navbar
+{
+
+    border: none;
+    color:black;
+}
+.navbar-inverse
+{
+
+    border: none;
+    color:black;
+}
+.container-fluid
+{
+
+    border: none;
+    color:black;
+}
+.navbar-header
+{
+    color:black;
+}
+.navbar-toggle
+{
+    background-color: #444;
+    color:black;
+}
+.navbar-toggle:focus
+{
+    background-color: pink;
+    color:black;
+}
+.navbar-brand
+{
+    color:black;
+}
+.collapse
+{
+    color:black;
+}
+.navbar-collapse
+{
+    color:black;
+}
+.nav
+{
+
+}
+.navbar-nav
+{
+    color:black;
+}
+.navbar-right
+{
+    color:black;
+}
+.glyphicon
+{
+
+}
+
+li a:link
+{
+    color:black;
+}
+nav li a:hover
+{
+    background-color: pink;
+    color: green;
+    opacity: 1;
+}
+nav li a,
+    nav li a:link,
+    nav li a:visited,
+    nav li a:hover
+{
+    color:black;
+}
+.active
+{
+    background-color: #004080;
+    display: none;
+}
