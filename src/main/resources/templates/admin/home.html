@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Admin Page</title>
-
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <title>Home page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -33,31 +28,7 @@
                 <span th:utext="${userName}"></span>
             </div>
             <div class="panel-body">
-                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"
-                     alt="Beer"/>
-            </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
-        </div>
-        <div class="panel panel-secondary">
-            <div class="panel-heading">
-                <h2>Twoje wydarzenia sportowe</h2>
-            </div>
-            <div class="panel-body">
-                <th:block th:each="row :${events}">
-                    <div class="form-signin">
-                        <!--/*@thymesVar id="row" type="com.gpch.login.dto.Event."*/-->
-                        <div class="row">
-                            <label>Opis: </label><label th:text="${row.description}" class="form-control"></label>
-                            <label>Data startu: </label><label th:text="${row.startDate}" class="form-control"></label>
-                            <label>Data zakończenia: </label><label th:text="${row.endDate}" class="form-control"></label>
-                            <label>Aktualna liczba uczestników: </label><label th:text="${row.currentUserNo + '/' + row.maxUsersAmount}" class="form-control"></label>
-                        </div>
-                            <div class="row">
-                                <!--<div class="col-md-6"><a th:replace="fragments/topnav :: detail"></a></div>-->
-                                <div class="col-md-3"> <a th:href="@{../event/{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></div>
-                         </div>
-                    </div>
-                </th:block>
+                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer"/>
             </div>
         </div>
     </div>

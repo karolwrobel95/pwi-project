@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css"/>-->
+<!--    <script type="text/javascript" src="js/bootstrap.js"></script>-->
 </head>
 <body>
 
@@ -19,19 +20,15 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/admin/home">Home</a></li>
-                <li><a href="/event/list/">Wydarzenia</a></li>
-                <li><a href="/places/list/">Miejsca</a></li>
+                <li><a href="/home">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/profile/edit/"><span class="glyphicon glyphicon-user"></span>Zmień hasło</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-<a th:fragment="detail" th:href="@{../{id}/(id=${row.eventId})}"/><span class="butonik">Zobacz</span></a></a>
 
 </body>
 </html>

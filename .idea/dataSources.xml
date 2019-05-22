@@ -15,5 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="Heroku DataBase" uuid="d1861b6e-15e4-4c60-b17a-5696758a675b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-46-137-113-157.eu-west-1.compute.amazonaws.com:5432/dcc12s39pd2elc</jdbc-url>
+    </data-source>
   </component>
 </project>

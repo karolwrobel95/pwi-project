@@ -1,19 +1,15 @@
 package com.gpch.login.service;
 
-import com.gpch.login.model.Rating;
 import com.gpch.login.model.Role;
 import com.gpch.login.model.User;
 import com.gpch.login.repository.RoleRepository;
 import com.gpch.login.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 @Service("userService")
 public class UserService {
@@ -25,8 +21,7 @@ public class UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository,
-                       RoleRepository roleRepository,
+    public UserService(UserRepository userRepository, RoleRepository roleRepository,
                        BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;

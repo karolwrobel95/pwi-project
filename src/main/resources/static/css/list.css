@@ -1,5 +1,5 @@
 body {
-    background-image: url('http://metropoliabydgoska.pl/wp-content/uploads/2018/01/pi%C5%82ka-no%C5%BCna-boisko-murawa-freeimages-1200x800.jpg');
+    background-image: url("../images/css-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -84,10 +84,6 @@ input
 .btn
 {
     width: 100%;
-}
-col-md-3
-{
-
 }
 
 .row

@@ -17,11 +17,11 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int id;
     @Column(name = "email")
@@ -44,13 +44,6 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
-    private List<Rating> ratings;
-
-
-
-
 
     public int getId() {
         return id;
@@ -59,8 +52,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-    public void addRating(Rating rating) { ratings.add(rating);}
 
     public String getEmail() {
         return email;
