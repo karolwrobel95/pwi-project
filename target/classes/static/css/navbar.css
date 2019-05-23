@@ -1,18 +1,15 @@
 .navbar
 {
-
     border: none;
     color:black;
 }
 .navbar-inverse
 {
-
     border: none;
     color:black;
 }
 .container-fluid
 {
-
     border: none;
     color:black;
 }
@@ -42,10 +39,6 @@
 {
     color:black;
 }
-.nav
-{
-
-}
 .navbar-nav
 {
     color:black;
@@ -54,10 +47,6 @@
 {
     color:black;
 }
-.glyphicon
-{
-
-}
 
 li a:link
 {
@@ -65,8 +54,7 @@ li a:link
 }
 nav li a:hover
 {
-    background-color: pink;
-    color: green;
+    color: white;
     opacity: 1;
 }
 nav li a,
