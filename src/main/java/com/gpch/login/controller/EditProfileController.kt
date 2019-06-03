@@ -1,6 +1,7 @@
 package com.gpch.login.controller
 
 import com.gpch.login.dto.UserEditDTO
+import com.gpch.login.model.User
 import com.gpch.login.repository.UserRepository
 import com.gpch.login.service.UserService
 import org.springframework.security.core.context.SecurityContextHolder
@@ -21,19 +22,19 @@ class EditProfileController constructor(
 
 
     @GetMapping("/edit/")
-    fun showProfile(@ModelAttribute userEditDTO :UserEditDTO, model: Model): String {
+    fun showProfile(@ModelAttribute user :User, model: Model): String {
 
         return "my_profile"
     }
 
 
     @PostMapping("/edit/")
-    fun changePassword (@Valid @ModelAttribute userEditDTO: UserEditDTO, result: BindingResult, model: Model):String {
+    fun changePassword (@Valid @ModelAttribute user: User, result: BindingResult, model: Model):String {
         if(result.hasErrors())
             return "my_profile"
         val auth = SecurityContextHolder.getContext().authentication
         val user = userService.findUserByEmail(auth.name)
-        user.password = userEditDTO.password
+        user.password = user.password
         userService.saveUser(user)
         model.addAttribute("passwordChanged","Hasło zostało zmienione")
         return "my_profile"

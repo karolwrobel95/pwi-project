@@ -3,33 +3,232 @@
 
 <head>
     <title>Home page</title>
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <meta charset="UTF-8">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css"/>
-    <script type="text/javascript" src="js/jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!--    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" th:href="@{../css/bootstrap/bootstrap.min.css}"/>
+    <script th:src="@{../js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{../js/bootstrap.min.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>-->
 </head>
 
 <body>
 <nav th:replace="fragments/topnav :: navbar">
 </nav>
-<div class="container">
 
-    <div class="panel-group" style="margin-top:40px">
-        <div class="panel panel-primary">
+<div class="main" style="text-align: center;">
 
-            <div class="panel-heading">
-                <span th:utext="${userName}"></span>
-            </div>
-            <div class="panel-body">
-                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer"/>
+    <div class="panel-group first-section" style="margin-bottom: 45px;">
+        <div class="panel panel-primary" style="padding: 15px;">
+            <div class="panel-body" style="display: inline-flex;">
             </div>
         </div>
     </div>
+    <div class="marketing" style="padding: 20px;">
+        <span th:text="#{lang.change}"></span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en" th:text="#{lang.eng}"></option>
+            <option value="pl" th:text="#{lang.pl}"></option>
+        </select>
+        <h1 class="moto-header">[[#{brands.header}]]</h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/ducati-logo.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Ducati</h2>
+                <p>[[#{ducati.description}]]</p>
+
+            </div>
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/yamaha.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Yamaha</h2>
+                <p>[[#{yamaha.description}]]</p>
+
+            </div>
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/suzuki-logo.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Suzuki</h2>
+                <p>[[#{suzuki.description}]]</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/kawasaki.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Kawasaki</h2>
+                <p>[[#{kawasaki.description}]]</p>
+
+            </div>
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/aprilia.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Aprilia</h2>
+                <p>[[#{aprilia.description}]]</p>
+
+            </div>
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/BMWlogo.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>BMW</h2>
+                <p>[[#{bmw.description}]]</p>
+
+            </div>
+        </div>
+
+        <hr>
+        <h1 style="padding-bottom: 25px;">[[#{bikes.header}]]</h1>
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="moto-header">Suzuki Hayabusa <span class="text-muted"> 248 mph </span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo
+                    cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <ul>
+                    <li>[[#{power}]]: 197 HP@9500 rpm.</li>
+                    <li>[[#{torque}]]: 155 Nm@7200 rpm.</li>
+                </ul>
+
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="../../images/hayabusa.png"
+                     data-holder-rendered="true">
+            </div>
+            <hr>
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="moto-header">Kawasaki Ninja H2R<span class="text-muted"> >222 mph </span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <ul>
+                        <li>[[#{power}]]: 310hp@14000rpm.</li>
+                        <li>[[#{torque}]]: 156 Nm@12500rpm.</li>
+                    </ul>
+
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="../../images/h2r.jpg"
+                         data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="moto-header">Honda CBR1100XX Super Blackbird<span class="text-muted"> 190 mph </span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <ul>
+                        <li>[[#{power}]]: 152 HP.</li>
+                        <li>[[#{torque}]]: 119 Nm@7250 rpm.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+                         src="../../images/HondaCBR1100XX.jpg" data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="moto-header">Yamaha YZF R1<span class="text-muted"> 186 mph 	299 km/h</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <ul>
+                        <li>[[#{power}]]: 200 HP@13500 rpm.</li>
+                        <li>[[#{torque}]]: 112.4 Nm@11500 rpm.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="../../images/r1m.png"
+                         data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="moto-header">MV AGUSTA F4 1000R<span class="text-muted"> 185 mph </span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <ul>
+                        <li>[[#{power}]]: 200 HP</li>
+                        <li>[[#{torque}]]: 115 Nm @10000 rpm.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+                         src="../../images/MVAGUSTAF41000R.jpg" data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="moto-header">BMW S1000 RR<span class="text-muted"> 190 mph </span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id liglia porta felis euismod semper. Praesent
+                        commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                    <ul>
+                        <li>[[#{power}]]: 199 HP</li>
+                        <li>[[#{torque}]]: 113 Nm @10500 rpm.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image moto-img mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
+                         src="../../images/s1000rr.jpeg"
+                         data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Rodo</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        [[#{rodo.text}]]
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>Made by Karol Wróbel</p>
+        </footer>
+    </div>
 </div>
+<script>
+    $(window).on('load', function () {
+        $('#myModal').modal('show');
+    });
+
+
+    $(document).ready(function () {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != '') {
+                window.location.replace('home?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
 </body>
+
 </html>

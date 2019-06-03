@@ -46,9 +46,7 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the email provided");
+            bindingResult.rejectValue("email", "error.user", "There is already a user registered with the email provided");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
@@ -57,11 +55,6 @@ public class LoginController {
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(user.getEmail());
-            message.setText(user.getName() + " " + user.getLastName() + " twoje konto zostało zarejestrowane");
-            message.setSubject("Rejestracja");
-//            sender.send(message);
         }
         return modelAndView;
     }

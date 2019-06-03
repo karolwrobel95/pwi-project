@@ -1,5 +1,4 @@
 body {
-    background-image: url("../images/css-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -27,4 +26,22 @@ body {
 {
     width: 100%;
     text-align: left;
+}
+.first-section
+{
+    height: 68vh;
+    background-image: url("../images/motoBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.moto-img
+{
+    max-width: 500px;
+    height: auto;
+}
+
+.moto-header
+{
+    padding: 20px;
 }
