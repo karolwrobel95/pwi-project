@@ -81,7 +81,7 @@ public class User {
     private Sex sex;
 
 
-    enum Sex {K, M}
+    public enum Sex {K, M}
 
 
     public Date getDateOfBirth() {

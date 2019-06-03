@@ -1,6 +1,5 @@
 package com.gpch.login.controller
 
-import com.gpch.login.dto.UserEditDTO
 import com.gpch.login.model.User
 import com.gpch.login.repository.UserRepository
 import com.gpch.login.service.UserService
@@ -22,8 +21,11 @@ class EditProfileController constructor(
 
 
     @GetMapping("/edit/")
-    fun showProfile(@ModelAttribute user :User, model: Model): String {
-
+    fun showProfile(@ModelAttribute userModel :User, model: Model): String {
+        val auth = SecurityContextHolder.getContext().authentication
+        val user = userService.findUserByEmail(auth.name)
+        user!!.password=""
+        model.addAttribute(user)
         return "my_profile"
     }
 
@@ -32,10 +34,7 @@ class EditProfileController constructor(
     fun changePassword (@Valid @ModelAttribute user: User, result: BindingResult, model: Model):String {
         if(result.hasErrors())
             return "my_profile"
-        val auth = SecurityContextHolder.getContext().authentication
-        val user = userService.findUserByEmail(auth.name)
-        user.password = user.password
-        userService.saveUser(user)
+        userService.changeCredentials(user)
         model.addAttribute("passwordChanged","Hasło zostało zmienione")
         return "my_profile"
 
