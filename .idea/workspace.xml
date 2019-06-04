@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/gpch/login/controller/LoginController.kt" line="44" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81074d31-33a7-4384-9337-ef3b4d487549" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gpch/login/configuration/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gpch/login/configuration/WebMvcConfig.java" afterDir="false" />
-    </list>
+    <list default="true" id="81074d31-33a7-4384-9337-ef3b4d487549" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gpch/login/configuration/WebMvcConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+            <state relative-caret-position="323">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -153,6 +149,7 @@
       <find>family=Lato</find>
       <find>type=&quot;text/javascript&quot;</find>
       <find>.form-group</find>
+      <find>log</find>
     </findStrings>
     <replaceStrings>
       <replace>moto-img</replace>
@@ -416,7 +413,7 @@
       <workItem from="1559417410476" duration="10422000" />
       <workItem from="1559470267217" duration="11163000" />
       <workItem from="1559590878743" duration="6911000" />
-      <workItem from="1559650565677" duration="916000" />
+      <workItem from="1559650565677" duration="1732000" />
     </task>
     <task id="LOCAL-00001" summary="quickFix">
       <created>1558564226634</created>
@@ -485,13 +482,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73148000" />
+    <option name="totallyTimeSpent" value="73964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20628998" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20628998" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -502,7 +498,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.50610435" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.25971144" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.25971144" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -949,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gpch/login/configuration/WebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        <state relative-caret-position="323">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
